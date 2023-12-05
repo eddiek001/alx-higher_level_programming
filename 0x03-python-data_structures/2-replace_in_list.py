@@ -3,9 +3,9 @@
 
 def replace_in_list(my_list, idx, element):
     """
-    Replace an element in a list index
+    Replaces an element in a list at given index
     """
-    list_len = len(mylist)
+    list_len = len(my_list)
     if list_len <= idx or idx < 0:
         return (my_list)
 
