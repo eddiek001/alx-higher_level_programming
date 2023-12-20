@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"suare module"
 
 
 class Square:
