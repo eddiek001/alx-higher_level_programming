@@ -13,7 +13,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 General
 Why Python programming is awesome
 What is OOP
-“first-class everything”
+?~@~\first-class everything?~@~]
 What is a class
 What is an object and an instance
 What is the difference between a class and an object or instance
@@ -31,3 +31,4 @@ How to bind attributes to object and classes
 What is the __dict__ of a class and/or instance of a class and what does it contain
 How does Python find the attributes of an object or class
 How to use the getattr function
+~                                
