@@ -1,15 +1,48 @@
-#!/usr/bin/python3
-"""define area and perimeter"""
+#!/usr/bin/python3i
+'''Write a class Rectangle that defines a rectangle'''
 
 
 class Rectangle():
     """rectangle class for storing rectangle data
     """
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """ instantiation method for object creation
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
+
+    def __str__(self):
+        """ provides __str__ method for object when str()
+            or print() is called
+        """
+        string = ""
+        if self.width == 0 or self.height == 0:
+            return string
+
+        for i in range(0, self.height):
+            for j in range(0, self.width):
+                string += '#'
+            if i != self.height - 1:
+                string += '\n'
+        return string
+
+    def __repr__(self):
+        """ provides __repr__ method for object when repr()
+            is called, or eval().
+        """
+        string = "Rectangle("
+        string += str(self.width)
+        string += ", " + str(self.height) + ")"
+        return string
+
+    def __del__(self):
+        """ called when a rectangle instance is deleted """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @property
     def height(self):
