@@ -1,17 +1,5 @@
 #!/usr/bin/python3
-"""function that inserts a line of text to a file,
-after each line containing a specific string"""
+append_after = __import__('100-append_after').append_after
 
+append_after("append_after_100.txt", "Python", "\"C is fun!\"\n")
 
-def append_after(filename="", search_string="", new_string=""):
-    """appends after search string instances in file
-    """
-    with open(filename, 'r', encoding='utf-8') as myFile:
-        lines = myFile.readlines()
-
-    for i, line in enumerate(lines):
-        if search_string in line:
-            lines.insert(i + 1, new_string)
-    with open(filename, 'w', encoding='utf-8') as myFile:
-        content = "".join(lines)
-        myFile.write(content)
