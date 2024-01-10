@@ -9,4 +9,5 @@ def inherits_from(obj, a_class):
     """
     if not isinstance(a_class, type):
         raise TypeError("a_class must be of type 'type'")
-    return (issubclass(type(obj), a_class) and type(obj) != a_class)
+
+    return isinstance(obj, a_class) and type(obj) != a_class
