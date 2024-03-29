@@ -1,22 +1,30 @@
 #!/usr/bin/python3
-"""script for posting data to star wars api
 """
-if __name__ == "__main__":
-    import requests
-    import sys
-    url = "https://api.github.com/"
-    username = sys.argv[1]
-    repo = sys.argv[2]
-    commits_url = url + "repos/{}/{}/commits".format(username, repo)
-    response = requests.get(commits_url)
-    if response.status_code == requests.codes.ok and len(response.text) > 0:
-        try:
-            my_obj = response.json()
-            for i, obj in enumerate(my_obj):
-                if i == 10:
-                    break
-                if type(obj) is dict:
-                    name = obj.get('commit').get('author').get('name')
-                    print("{}: {}".format(obj.get('sha'), name))
-        except ValueError as invalid_json:
-            pass
+Please list 10 commits (from the most recent to oldest) of the repository
+“rails” by the user “rails”
+You must use the GitHub API, here is the documentation
+https://developer.github.com/v3/repos/commits/
+Print all commits by: `<sha>: <author name>` (one by line)
+"""
+
+
+if __name__ == '__main__':
+    from requests import get
+    from sys import argv
+
+    repo = argv[1]
+    owner = argv[2]
+    i = 0
+
+    URL = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
+
+    response = get(URL)
+    json = response.json()
+
+    for element in json:
+        if i > 9:
+            break
+        sha = element.get('sha')
+        author = element.get('commit').get('author').get('name')
+        print("{}: {}".format(sha, author))
+        i += 1
